@@ -6,20 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hello World | Hexo</title>
+  <title>JavaScript是如何执行的 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="几乎所有人都知道JavaScript是单线程的，并且使用回调队列来处理异步操作。但是一个JavaScript程序是如何执行的呢？程序执行过程中经历了什么？它的声明周期是怎样的？ 做为一名JavaScript开发者，我们应该了解其内部的工作机制，了解底层知识，才能够开发出更加酷炫的程序。 计算机唯一识别的语言是机器语言当今的程序，在大多数情况下，我们使用的是高级语言，如C、C++、Java，当然也包">
 <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验 react 计算机基础 算法 函数式编程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
+<meta property="og:title" content="JavaScript是如何执行的">
 <meta property="og:url" content="http://yoursite.com/2019/08/25/hello-world/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="几乎所有人都知道JavaScript是单线程的，并且使用回调队列来处理异步操作。但是一个JavaScript程序是如何执行的呢？程序执行过程中经历了什么？它的声明周期是怎样的？ 做为一名JavaScript开发者，我们应该了解其内部的工作机制，了解底层知识，才能够开发出更加酷炫的程序。 计算机唯一识别的语言是机器语言当今的程序，在大多数情况下，我们使用的是高级语言，如C、C++、Java，当然也包">
 <meta property="og:locale" content="zh-CNs">
-<meta property="og:updated_time" content="2019-08-25T13:59:48.335Z">
+<meta property="og:image" content="http://yoursite.com/img/images/codefile.jpg">
+<meta property="og:image" content="http://yoursite.com/img/images/call.png">
+<meta property="og:image" content="http://yoursite.com/img/images/callerror.png">
+<meta property="og:updated_time" content="2019-09-08T08:34:48.240Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="JavaScript是如何执行的">
+<meta name="twitter:description" content="几乎所有人都知道JavaScript是单线程的，并且使用回调队列来处理异步操作。但是一个JavaScript程序是如何执行的呢？程序执行过程中经历了什么？它的声明周期是怎样的？ 做为一名JavaScript开发者，我们应该了解其内部的工作机制，了解底层知识，才能够开发出更加酷炫的程序。 计算机唯一识别的语言是机器语言当今的程序，在大多数情况下，我们使用的是高级语言，如C、C++、Java，当然也包">
+<meta name="twitter:image" content="http://yoursite.com/img/images/codefile.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -170,7 +174,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      JavaScript是如何执行的
     </h1>
   
 
@@ -183,19 +187,41 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <p>几乎所有人都知道JavaScript是单线程的，并且使用回调队列来处理异步操作。但是一个JavaScript程序是如何执行的呢？程序执行过程中经历了什么？它的声明周期是怎样的？</p>
+<p>做为一名JavaScript开发者，我们应该了解其内部的工作机制，了解底层知识，才能够开发出更加酷炫的程序。</p>
+<h2 id="计算机唯一识别的语言是机器语言"><a href="#计算机唯一识别的语言是机器语言" class="headerlink" title="计算机唯一识别的语言是机器语言"></a>计算机唯一识别的语言是机器语言</h2><p>当今的程序，在大多数情况下，我们使用的是高级语言，如C、C++、Java，当然也包括JavaScript等。虽然语法和语言实现上存在一些差异，但是它们都有一个共同的特点：必须被转化为机器语言。高级语言被成为<strong>源程序</strong>，被翻译成的机器语言程序称为<strong>目标程序</strong>。有两种方式用于翻译：<strong>编译</strong>和<strong>解释</strong>。</p>
+<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><p>编译程序通常把整个源程序翻译成目标程序</p>
+<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p>解释是指把源程序的每一行翻译成目标程序相应的行，并执行它的过程。</p>
+<h4 id="为什么有人说解释型语言要比编译型语言慢？"><a href="#为什么有人说解释型语言要比编译型语言慢？" class="headerlink" title="为什么有人说解释型语言要比编译型语言慢？"></a>为什么有人说解释型语言要比编译型语言慢？</h4><p>在大多数解释型语言中，源程序的每一行被翻译成被其使用计算机上的机器语言，该行机器语言被立即执行。但是如果在翻译或者执行的过程中有任何错误，则会终止翻译或者程序的执行，并显示错误消息中断其他过程。程序需要被修正，再次从头开始解释和执行。</p>
+<h3 id="翻译过程"><a href="#翻译过程" class="headerlink" title="翻译过程"></a>翻译过程</h3><p>编译和解释的不同在于，编译在执行前翻译整个源代码，而解释一次只翻译和执行源代码中的一行。但是两种方式都遵循如下图显示的相同翻译过程：</p>
+<p><img src="/img/images/codefile.jpg" alt="avatar"></p>
+<h3 id="机器周期"><a href="#机器周期" class="headerlink" title="机器周期"></a>机器周期</h3><p>CPU利用重复的周期来执行程序中的指令，一步一条，从开始到结束。简化的周期包括三步：取指令、译码和执行。</p>
+<h3 id="JavaScript是如何运行的"><a href="#JavaScript是如何运行的" class="headerlink" title="JavaScript是如何运行的"></a>JavaScript是如何运行的</h3><p>通过上述介绍，我们知道高级语言需要被翻译成机器语言。而JavaScript是解释型语言。所以它需要一个程序来处理JavaScript代码和运行时环境，我们称之为引擎。如翻译过程图所示，一个JavaScript引擎一般需要包括以下几个部分：</p>
+<ul>
+<li>编译器。主要工作是将源代码编译成抽象语法树，在某些引擎可能还包含了将抽象语法树转换成中间表示（字节码）。</li>
+<li>解释器。在某些引擎中，解释器主要是接收字节码，解释执行这个字节码，同时也依赖垃圾回收机制等。</li>
+<li>JIT工具。一个能够 JIT 的工具，将字节码或者抽象语法树转换成本地代码。</li>
+<li>垃圾回收器和分析工具。它们负责垃圾回收和收集引擎中的信息，帮助改善引擎的性能和功效。</li>
+</ul>
+<p>谷歌V8引擎是当今流行的JavaScript引擎之一，其中有两个主要的主要的部件：</p>
+<ol>
+<li>动态内存管理。（在这里分配内存）</li>
+<li>调用栈（代码放入这里执行的堆栈结构）</li>
+</ol>
+<p>在运行时还有一个API如DOM操作、Ajax、定时器等，这些Web API是由运行时环境提供的，比如浏览器。</p>
+<h3 id="调用栈"><a href="#调用栈" class="headerlink" title="调用栈"></a>调用栈</h3><p>JavaScript是一个单线程的编程语言，这意味着它只有一个调用栈。所以它只能同一时间一次只能做一件事情。于是就有了流行的事件循环和回调队列这些概念的出现。</p>
+<p>调用栈是一种抽象数据类型。里面会记录我们在程序中的大概位置。当执行进入一个函数，把它置于栈的顶部。如果从函数中返回则从栈顶部移除函数。这就是调用栈所能够做的事情。</p>
+<p>如下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function add(x, y) &#123;</span><br><span class="line">  return x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function printAdd(x) &#123;</span><br><span class="line">  var s = add(x, x);</span><br><span class="line">  console.log(s);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printAdd(5);</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>它的执行过程如下图：<br><img src="/img/images/call.png" alt="avatar"></p>
+<p>调用栈重的每个入口被成为堆栈结构。当发生异常的时候这基本上是调用栈的状态。</p>
+<p>当抛出异常的时候这正好是堆栈追踪是如何被构造出来的。如果在 Chrome 中执行（假设代码在 foo.js 的文件中），将会产生如下的堆栈追踪：<br><img src="/img/images/callerror.png" alt="avatar"></p>
+<h4 id="堆栈益处错误"><a href="#堆栈益处错误" class="headerlink" title="堆栈益处错误"></a>堆栈益处错误</h4><p>栈的大小是有限制的，当达到最大调用栈大小的时候，就会出现堆栈益出错误，这样额情况在递归函数中很容易发生，类似于闭包的副作用内存泄漏一样。<br>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function foo() &#123;</span><br><span class="line">  foo();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p>当引擎开始执行这段代码的时候，它开始调用 foo 函数。这个函数，然而，会递归并开始调用其自身而没有任何结束条件。所以在每步执行过程中，调用堆栈会反复地添加同样的函数。在某一时刻，然而，调用堆栈中的函数调用次数超过了调用堆栈的实际大小，这样浏览器决定抛出错误的动作。</p>
+<p>单线程的一个好处是不用处理多线程环境中一些复杂情况，但是伴随而来的缺点是，JavaScript只有一个调用栈，我们知道程序的运行过程，如果一个程序或一段代码运行很慢，那么势必会阻塞后续代码的执行。该如何解决呢？如何不阻塞UI且不让浏览器停止响应来执行运行缓慢的代码呢？上文提到过事件循环，解决办法是使用异步回调的方式。关于时间循环将会单独写一篇文章来继续讨论。</p>
 
       
 
